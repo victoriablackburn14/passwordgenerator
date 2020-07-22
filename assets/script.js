@@ -98,6 +98,9 @@ function getPasswordOptions(){
   var userSpecial=confirm("Do you want to include special characters?");
     console.log(userSpecial);
 
+  var userNumber=confirm("Do you want to include numbers?");
+    console.log(userNumber);  
+
   var passwordOptions ={
     pwLength:pwLength,
     upperCase:upperCase,
@@ -126,27 +129,27 @@ function generatePassword(){
   var result=[]
   var possibleCharacters=[]
   var guaranteeCharacters=[]
-  if (options.userCase){
+  if (options.userSpecial){
     possibleCharacters=possibleCharacters.concat(specialCharacters)
+    console.log(possibleCharacters)
     guaranteeCharacters.push(getRandom(specialCharacters))
   }
   if (options.upperCase){
-  possibleCharacters.concat(upperCasedCharacters)
+    possibleCharacters=possibleCharacters.concat(upperCasedCharacters)
   guaranteeCharacters.push(getRandom(upperCasedCharacters))
   }
   if (options.lowerCase){
-    possibleCharacters.concat(lowerCasedCharacters)
+    possibleCharacters=possibleCharacters.concat(lowerCasedCharacters)
     guaranteeCharacters.push(getRandom(lowerCasedCharacters))
     }
 
   if (options.numericCharacters){
-    possibleCharacters.concat(numericCharacters)
+    possibleCharacters=possibleCharacters.concat(numericCharacters)
     guaranteeCharacters.push(getRandom(numericCharacters))
     }
   
   for (var index = 0; index < options.pwLength; index++) {
-    var possibleCharacters=getRandom(possibleCharacters)
-    result.push(possibleCharacters)
+    result.push(getRandom(possibleCharacters))
   }
   for (var index = 0; index < guaranteeCharacters.length; index++) {
     result[index]=guaranteeCharacters[index]
