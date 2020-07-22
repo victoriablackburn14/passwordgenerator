@@ -108,6 +108,8 @@ return passwordOptions
 }
 // Write password to the #password input
 function getRandom(arr){
+  console.log(arr);
+  console.log(arr.length);
   var randomIndex=Math.floor(Math.random() * arr.length);
   var randomEl=arr[randomIndex];
   return randomEl;
